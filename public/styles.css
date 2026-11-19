@@ -241,6 +241,47 @@ h1 {
   background: #fde8e1;
   color: var(--acento-oscuro);
 }
+
+/* Colores por grupo muscular, en armonía con la paleta de la página */
+.etiqueta.grupo[data-grupo="Pecho"] {
+  background: #fde8e1;
+  color: var(--acento-oscuro);
+}
+.etiqueta.grupo[data-grupo="Espalda"] {
+  background: #e7e2d8;
+  color: #6b5a2e;
+}
+.etiqueta.grupo[data-grupo="Pierna"] {
+  background: #e7e0f3;
+  color: #5a3d99;
+}
+.etiqueta.grupo[data-grupo="Hombro"] {
+  background: #fde8e1;
+  color: #b4541f;
+}
+.etiqueta.grupo[data-grupo="Brazo"] {
+  background: #f3e2ea;
+  color: #9c3d6e;
+}
+.etiqueta.grupo[data-grupo="Core"] {
+  background: #e2e8e5;
+  color: #2d6a4f;
+}
+
+/* Colores por nivel de dificultad */
+.etiqueta.nivel[data-nivel="Principiante"] {
+  background: #e3f3e6;
+  color: #1c7a35;
+}
+.etiqueta.nivel[data-nivel="Intermedio"] {
+  background: #e1edfb;
+  color: #1a5aa8;
+}
+.etiqueta.nivel[data-nivel="Avanzado"] {
+  background: #fbe3e1;
+  color: var(--peligro);
+}
+
 .vacio {
   grid-column: 1 / -1;
   text-align: center;

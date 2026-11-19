@@ -86,8 +86,8 @@ function pintar(ejercicios) {
         <div class="tarjeta-cuerpo">
           <h3>${escapar(ej.nombre)}</h3>
           <div class="etiquetas">
-            <span class="etiqueta grupo">${escapar(ej.grupo_muscular)}</span>
-            <span class="etiqueta">${escapar(ej.nivel)}</span>
+            <span class="etiqueta grupo" data-grupo="${escapar(ej.grupo_muscular)}">${escapar(ej.grupo_muscular)}</span>
+            <span class="etiqueta nivel" data-nivel="${escapar(ej.nivel)}">${escapar(ej.nivel)}</span>
           </div>
         </div>
       </button>`;
@@ -104,8 +104,8 @@ async function verDetalle(id) {
     $("#detDescripcion").textContent = ej.descripcion || "Sin descripción.";
     $("#detEtiquetas").innerHTML = `
       <div class="etiquetas">
-        <span class="etiqueta grupo">${escapar(ej.grupo_muscular)}</span>
-        <span class="etiqueta">${escapar(ej.nivel)}</span>
+        <span class="etiqueta grupo" data-grupo="${escapar(ej.grupo_muscular)}">${escapar(ej.grupo_muscular)}</span>
+        <span class="etiqueta nivel" data-nivel="${escapar(ej.nivel)}">${escapar(ej.nivel)}</span>
       </div>`;
 
     const idVideo = idYouTube(ej.video_url);
