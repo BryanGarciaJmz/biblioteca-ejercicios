@@ -48,9 +48,12 @@ body {
   place-items: center;
   width: 46px;
   height: 46px;
-  border-radius: 12px;
-  background: var(--tinta);
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--acento), var(--acento-oscuro));
   color: #fff;
+  box-shadow: 0 4px 10px rgba(228, 87, 46, 0.35);
+  font-size: 1.4rem;
+  line-height: 1;
 }
 h1,
 h2 {
