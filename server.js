@@ -34,10 +34,7 @@ async function inicializarBD() {
     )
   `);
 
-  const { rows } = await pool.query(
-    "SELECT COUNT(*)::int AS total FROM ejercicios",
-  );
-  if (rows[0].total === 0) {
+  {
     const ejemplos = [
       [
         "Press de banca",
@@ -202,6 +199,11 @@ async function inicializarBD() {
       ],
     ];
     for (const e of ejemplos) {
+      const { rows: existentes } = await pool.query(
+        "SELECT 1 FROM ejercicios WHERE nombre = $1",
+        [e[0]],
+      );
+      if (existentes.length) continue;
       await pool.query(
         `INSERT INTO ejercicios (nombre, grupo_muscular, nivel, descripcion, video_url)
          VALUES ($1, $2, $3, $4, $5)`,
