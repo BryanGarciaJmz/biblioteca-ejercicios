@@ -10,7 +10,7 @@ let grupoActual = "";
 let textoBusqueda = "";
 let ejercicioAbierto = null;
 
-// ---------- Utilidades ----------
+// Utilidades
 function escapar(texto) {
   const div = document.createElement("div");
   div.textContent = texto ?? "";
@@ -20,7 +20,7 @@ function escapar(texto) {
 // Obtiene el ID de un video de YouTube a partir de cualquier formato de enlace
 function idYouTube(url) {
   const m = String(url).match(
-    /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/
+    /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/,
   );
   return m ? m[1] : null;
 }
@@ -49,7 +49,7 @@ async function pedir(url, opciones = {}) {
   return datos;
 }
 
-// ---------- Consultar todos ----------
+// Consultar todos
 async function cargar() {
   const params = new URLSearchParams();
   if (textoBusqueda) params.set("q", textoBusqueda);
@@ -95,7 +95,7 @@ function pintar(ejercicios) {
     .join("");
 }
 
-// ---------- Consultar uno (detalle con video incrustado) ----------
+// Consultar uno
 async function verDetalle(id) {
   try {
     const ej = await pedir(`${API}/${id}`);
@@ -120,7 +120,7 @@ async function verDetalle(id) {
   }
 }
 
-// ---------- Agregar / editar ----------
+// Agregar / editar
 function abrirFormulario(ej = null) {
   $("#formTitulo").textContent = ej ? "Editar ejercicio" : "Nuevo ejercicio";
   $("#fId").value = ej?.id ?? "";
@@ -160,7 +160,7 @@ $("#formEjercicio").addEventListener("submit", async (e) => {
   }
 });
 
-// ---------- Eliminar ----------
+// Eliminar
 async function eliminar(ej) {
   if (!confirm(`¿Eliminar "${ej.nombre}"?`)) return;
   try {
@@ -173,7 +173,7 @@ async function eliminar(ej) {
   }
 }
 
-// ---------- Eventos ----------
+// Eventos
 lista.addEventListener("click", (e) => {
   const tarjeta = e.target.closest(".tarjeta");
   if (tarjeta) verDetalle(tarjeta.dataset.id);
@@ -189,18 +189,24 @@ $("#detEliminar").addEventListener("click", () => eliminar(ejercicioAbierto));
 // Detiene el video al cerrar el detalle
 dlgDetalle.addEventListener("close", () => ($("#detMedia").innerHTML = ""));
 
-document.querySelectorAll("[data-cerrar]").forEach((btn) =>
-  btn.addEventListener("click", () => btn.closest("dialog").close())
-);
+document
+  .querySelectorAll("[data-cerrar]")
+  .forEach((btn) =>
+    btn.addEventListener("click", () => btn.closest("dialog").close()),
+  );
 // Cerrar al dar clic fuera del cuadro
 [dlgDetalle, dlgForm].forEach((dlg) =>
-  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); })
+  dlg.addEventListener("click", (e) => {
+    if (e.target === dlg) dlg.close();
+  }),
 );
 
 $("#filtros").addEventListener("click", (e) => {
   const chip = e.target.closest(".chip");
   if (!chip) return;
-  document.querySelectorAll(".chip").forEach((c) => c.classList.remove("activo"));
+  document
+    .querySelectorAll(".chip")
+    .forEach((c) => c.classList.remove("activo"));
   chip.classList.add("activo");
   grupoActual = chip.dataset.grupo;
   cargar();

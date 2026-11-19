@@ -1,117 +1,173 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biblioteca de Ejercicios</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="contenedor">
-    <header class="encabezado">
-      <div class="marca">
-        <span class="marca-icono" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M2 10h2V7h3v10H4v-3H2v-4Zm18 0h2v4h-2v3h-3V7h3v3ZM8 11h8v2H8v-2Z"/></svg>
-        </span>
-        <div>
-          <h1>Biblioteca de Ejercicios</h1>
-          <p class="subtitulo">Técnica en video para entrenar mejor</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca de Ejercicios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <header class="encabezado">
+        <div class="marca">
+          <span class="marca-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22">
+              <path
+                fill="currentColor"
+                d="M2 10h2V7h3v10H4v-3H2v-4Zm18 0h2v4h-2v3h-3V7h3v3ZM8 11h8v2H8v-2Z"
+              />
+            </svg>
+          </span>
+          <div>
+            <h1>Biblioteca de Ejercicios</h1>
+            <p class="subtitulo">Técnica en video para entrenar mejor</p>
+          </div>
         </div>
-      </div>
-      <button id="btnNuevo" class="btn btn-primario">+ Agregar ejercicio</button>
-    </header>
+        <button id="btnNuevo" class="btn btn-primario">
+          + Agregar ejercicio
+        </button>
+      </header>
 
-    <section class="controles" aria-label="Búsqueda y filtros">
-      <input type="search" id="buscar" placeholder="Buscar ejercicio…" aria-label="Buscar ejercicio" />
-      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por grupo muscular">
-        <button class="chip activo" data-grupo="">Todos</button>
-        <button class="chip" data-grupo="Pecho">Pecho</button>
-        <button class="chip" data-grupo="Espalda">Espalda</button>
-        <button class="chip" data-grupo="Pierna">Pierna</button>
-        <button class="chip" data-grupo="Hombro">Hombro</button>
-        <button class="chip" data-grupo="Brazo">Brazo</button>
-        <button class="chip" data-grupo="Core">Core</button>
-      </div>
-    </section>
+      <section class="controles" aria-label="Búsqueda y filtros">
+        <input
+          type="search"
+          id="buscar"
+          placeholder="Buscar ejercicio…"
+          aria-label="Buscar ejercicio"
+        />
+        <div
+          class="filtros"
+          id="filtros"
+          role="group"
+          aria-label="Filtrar por grupo muscular"
+        >
+          <button class="chip activo" data-grupo="">Todos</button>
+          <button class="chip" data-grupo="Pecho">Pecho</button>
+          <button class="chip" data-grupo="Espalda">Espalda</button>
+          <button class="chip" data-grupo="Pierna">Pierna</button>
+          <button class="chip" data-grupo="Hombro">Hombro</button>
+          <button class="chip" data-grupo="Brazo">Brazo</button>
+          <button class="chip" data-grupo="Core">Core</button>
+        </div>
+      </section>
 
-    <p class="contador" id="contador" aria-live="polite"></p>
+      <p class="contador" id="contador" aria-live="polite"></p>
 
-    <main id="lista" class="grid"></main>
+      <main id="lista" class="grid"></main>
 
-    <footer class="pie">
-      <p><strong>Alumno:</strong> Bryan Josafat García Jiménez</p>
-      <p><strong>Materia:</strong> Conceptualización de servicios en la nube</p>
-      <p><strong>Código:</strong> 225385578 · <strong>Contacto:</strong> bryan.garcia8557@alumnos.udg.mx</p>
-      <p class="creditos">Videos alojados en YouTube. Hecho con Node.js, Express y PostgreSQL, desplegado en Render.</p>
-    </footer>
-  </div>
-
-  <!-- Detalle del ejercicio -->
-  <dialog id="dlgDetalle" class="dialogo dialogo-ancho">
-    <div class="dialogo-cabeza">
-      <h2 id="detTitulo"></h2>
-      <button class="btn-cerrar" data-cerrar aria-label="Cerrar">×</button>
+      <footer class="pie">
+        <p><strong>Alumno:</strong> Bryan Josafat García Jiménez</p>
+        <p>
+          <strong>Materia:</strong> Conceptualización de servicios en la nube
+        </p>
+        <p>
+          <strong>Código:</strong> 225385578 ·
+          <strong>Contacto:</strong> bryan.garcia8557@alumnos.udg.mx
+        </p>
+        <p class="creditos">
+          Videos alojados en YouTube. Hecho con Node.js, Express y PostgreSQL,
+          desplegado en Render.
+        </p>
+      </footer>
     </div>
-    <div id="detMedia" class="media"></div>
-    <div class="det-etiquetas" id="detEtiquetas"></div>
-    <p id="detDescripcion" class="det-descripcion"></p>
-    <div class="dialogo-acciones">
-      <button class="btn btn-peligro" id="detEliminar">Eliminar</button>
-      <button class="btn btn-secundario" id="detEditar">Editar</button>
-    </div>
-  </dialog>
 
-  <!-- Formulario agregar / editar -->
-  <dialog id="dlgForm" class="dialogo">
-    <form id="formEjercicio" method="dialog">
+    <!-- Detalle del ejercicio -->
+    <dialog id="dlgDetalle" class="dialogo dialogo-ancho">
       <div class="dialogo-cabeza">
-        <h2 id="formTitulo">Nuevo ejercicio</h2>
-        <button type="button" class="btn-cerrar" data-cerrar aria-label="Cerrar">×</button>
+        <h2 id="detTitulo"></h2>
+        <button class="btn-cerrar" data-cerrar aria-label="Cerrar">×</button>
       </div>
-      <input type="hidden" id="fId" />
-
-      <label for="fNombre">Nombre</label>
-      <input id="fNombre" required maxlength="100" />
-
-      <div class="fila">
-        <div>
-          <label for="fGrupo">Grupo muscular</label>
-          <select id="fGrupo" required>
-            <option>Pecho</option><option>Espalda</option><option>Pierna</option>
-            <option>Hombro</option><option>Brazo</option><option>Core</option>
-          </select>
-        </div>
-        <div>
-          <label for="fNivel">Nivel</label>
-          <select id="fNivel" required>
-            <option>Principiante</option><option>Intermedio</option><option>Avanzado</option>
-          </select>
-        </div>
-      </div>
-
-      <label for="fVideo">Enlace del video (YouTube)</label>
-      <input id="fVideo" type="url" required placeholder="https://www.youtube.com/watch?v=..." />
-
-      <label for="fImagen">Enlace de imagen <span class="opcional">(opcional)</span></label>
-      <input id="fImagen" type="url" placeholder="https://… (Cloudinary, Unsplash, Drive)" />
-      <small class="ayuda">Si lo dejas vacío se usa la miniatura del video de YouTube.</small>
-
-      <label for="fDescripcion">Descripción / tips de técnica</label>
-      <textarea id="fDescripcion" rows="4"></textarea>
-
-      <p class="error" id="formError" role="alert"></p>
+      <div id="detMedia" class="media"></div>
+      <div class="det-etiquetas" id="detEtiquetas"></div>
+      <p id="detDescripcion" class="det-descripcion"></p>
       <div class="dialogo-acciones">
-        <button type="button" class="btn btn-secundario" data-cerrar>Cancelar</button>
-        <button type="submit" class="btn btn-primario">Guardar</button>
+        <button class="btn btn-peligro" id="detEliminar">Eliminar</button>
+        <button class="btn btn-secundario" id="detEditar">Editar</button>
       </div>
-    </form>
-  </dialog>
+    </dialog>
 
-  <div id="aviso" class="aviso" role="status"></div>
+    <!-- Formulario agregar / editar -->
+    <dialog id="dlgForm" class="dialogo">
+      <form id="formEjercicio" method="dialog">
+        <div class="dialogo-cabeza">
+          <h2 id="formTitulo">Nuevo ejercicio</h2>
+          <button
+            type="button"
+            class="btn-cerrar"
+            data-cerrar
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+        </div>
+        <input type="hidden" id="fId" />
 
-  <script src="app.js"></script>
-</body>
+        <label for="fNombre">Nombre</label>
+        <input id="fNombre" required maxlength="100" />
+
+        <div class="fila">
+          <div>
+            <label for="fGrupo">Grupo muscular</label>
+            <select id="fGrupo" required>
+              <option>Pecho</option>
+              <option>Espalda</option>
+              <option>Pierna</option>
+              <option>Hombro</option>
+              <option>Brazo</option>
+              <option>Core</option>
+            </select>
+          </div>
+          <div>
+            <label for="fNivel">Nivel</label>
+            <select id="fNivel" required>
+              <option>Principiante</option>
+              <option>Intermedio</option>
+              <option>Avanzado</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="fVideo">Enlace del video (YouTube)</label>
+        <input
+          id="fVideo"
+          type="url"
+          required
+          placeholder="https://www.youtube.com/watch?v=..."
+        />
+
+        <label for="fImagen"
+          >Enlace de imagen <span class="opcional">(opcional)</span></label
+        >
+        <input
+          id="fImagen"
+          type="url"
+          placeholder="https://… (Cloudinary, Unsplash, Drive)"
+        />
+        <small class="ayuda"
+          >Si lo dejas vacío se usa la miniatura del video de YouTube.</small
+        >
+
+        <label for="fDescripcion">Descripción / tips de técnica</label>
+        <textarea id="fDescripcion" rows="4"></textarea>
+
+        <p class="error" id="formError" role="alert"></p>
+        <div class="dialogo-acciones">
+          <button type="button" class="btn btn-secundario" data-cerrar>
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primario">Guardar</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="aviso" class="aviso" role="status"></div>
+
+    <script src="app.js"></script>
+  </body>
 </html>
